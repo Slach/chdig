@@ -1,6 +1,6 @@
 use std::env;
 use std::fs;
-use std::os::unix::fs::symlink;
+use symlink;
 use std::path::Path;
 use std::process::Command;
 
@@ -78,7 +78,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
         target,
     );
     let _status = fs::remove_file(&symlink_dst);
-    symlink(&pyo3_config_path, &symlink_dst).map_err(|e| {
+    symlink::symlink_file(&pyo3_config_path, &symlink_dst).map_err(|e| {
         format!(
             "Cannot create symlink {} -> {} ({})",
             &pyo3_config_path, &symlink_dst, e

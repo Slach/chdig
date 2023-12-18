@@ -124,6 +124,7 @@ dependencies = [
  "anyhow",
  "pyembed",
  "pyo3",
+ "symlink",
 ]
 
 [[package]]
@@ -471,6 +472,12 @@ checksum = "a346909b3fd07776f9b96b98d4a58e3666f831c9a672c279b10f795a34c36425"
 dependencies = [
  "smallvec",
 ]
+
+[[package]]
+name = "symlink"
+version = "0.1.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "a7973cce6668464ea31f176d85b13c7ab3bba2cb3b77a2ed26abd7801688010a"
 
 [[package]]
 name = "syn"

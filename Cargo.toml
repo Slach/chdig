@@ -37,7 +37,7 @@ warp = "*"
 clap = { version = "*", features = ["derive", "env"] }
 clap_complete = { version = "*" }
 # UI
-cursive = { version = "*", default-features = false, features = ["termion-backend"] }
+cursive = { version = "*", default-features = false }
 cursive_buffered_backend = "0.6.1"
 cursive-syntect = "*"
 # Patches:
@@ -56,6 +56,17 @@ tokio = { version = "*", features = ["full"] }
 
 [dependencies.flameshow]
 path = "contrib/flameshow"
+
+
+[target.'cfg(any(unix, macos))'.dependencies.cursive]
+version = "*"
+default-features = false
+features = ["termion-backend"]
+
+[target.'cfg(windows)'.dependencies.cursive]
+version = "*"
+default-features = false
+features = ["crossterm-backend"]
 
 [profile.release]
 lto = true
